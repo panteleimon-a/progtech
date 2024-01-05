@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/marios/workspace/literature-ntua/progtech/the-good-the-bad-and-the-zombie/src/characters.cpp
+characters.h
+/home/marios/workspace/literature-ntua/progtech/the-good-the-bad-and-the-zombie/src/characters.h
+
+/home/marios/workspace/literature-ntua/progtech/the-good-the-bad-and-the-zombie/src/characters.h
+list
+-
+cstdio
+-
+cstdlib
+-
+exception
+-
+typeinfo
+-
+ctime
+-
+cassert
+-
+string.h
+-
+iostream
+-
+
