@@ -1,1 +1,0 @@
-/usr/bin/c++   -fPIC -Wall -std=c++11 -o3 -Wno-sign-compare -fpermissive    CMakeFiles/the-good-the-bad-and-the-zombie.dir/src/characters.cpp.o  -o the-good-the-bad-and-the-zombie -rdynamic 
