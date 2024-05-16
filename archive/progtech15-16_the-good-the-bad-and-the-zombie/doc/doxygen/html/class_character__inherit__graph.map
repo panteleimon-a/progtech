@@ -1,0 +1,5 @@
+<map id="Character" name="Character">
+<area shape="rect" id="node2" href="$class_bad.html" title="{Bad\n||+ operator Zombie()\l+ Bad()\l+ Bad()\l+ ~Bad()\l+ attack()\l}" alt="" coords="5,321,140,457"/>
+<area shape="rect" id="node3" href="$class_good.html" title="{Good\n||+ operator Zombie()\l+ Good()\l+ Good()\l+ ~Good()\l+ attack()\l}" alt="" coords="165,321,300,457"/>
+<area shape="rect" id="node4" href="$class_zombie.html" title="{Zombie\n||+ operator Good()\l+ operator Bad()\l+ Zombie()\l+ Zombie()\l+ ~Zombie()\l+ attack()\l+ attack()\l}" alt="" coords="325,307,448,472"/>
+</map>
