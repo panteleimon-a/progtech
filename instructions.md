@@ -28,17 +28,51 @@ The goal is to enable C++ code generation and building directly from Windows Ter
 
 ### Install MinGW-w64 (C++ Compiler)
 1. **Download MinGW-w64**:
-   - Download from [mingw-w64.org](http://mingw-w64.org/doku.php/download).
-   - Install to `C:\MinGW` and add `C:\MinGW\bin` to your Windows PATH:
-     - Open Windows Settings > System > About > Advanced system settings > Environment Variables.
-     - Edit the `Path` variable under System variables, adding `C:\MinGW\bin`.
+   - Visit the MinGW-w64 project page at [sourceforge.net/projects/mingw-w64](https://sourceforge.net/projects/mingw-w64/) or the official download page at [mingw-w64.org](http://mingw-w64.org/doku.php/download).
+   - On the MinGW-w64 SourceForge page, locate the latest release under **Files** (e.g., `mingw-w64-install.exe` for the installer).
+   - Alternatively, use a trusted mirror or the [WinLibs standalone build](https://winlibs.com/) for a precompiled package without an installer.
+     - For WinLibs, download the latest `mingw-w64` archive (e.g., `winlibs-x86_64-posix-seh-gcc-X.XX.X-mingw-w64-X.XX.X-release-mingw-w64rt-X.XX.X.7z`).
+   - **Recommendation**: Use the `mingw-w64-install.exe` from SourceForge for simplicity, as it provides a graphical installer.
 
-2. **Verify Installation**:
-   - In Command Prompt or PowerShell:
+2. **Run the MinGW-w64 Installer**:
+   - Double-click `mingw-w64-install.exe` to launch the installer.
+   - Configure the following settings in the installer wizard:
+     - **Version**: Select the latest GCC version (e.g., 8.1.0 or higher).
+     - **Architecture**: Choose `x86_64` for 64-bit Windows (recommended) or `i686` for 32-bit systems.
+     - **Threads**: Select `posix` for better compatibility with modern C++ standards (e.g., C++11 threading).
+     - **Exception**: Choose `seh` for 64-bit (better performance)  **Destination**: Set the installation path to `C:\MinGW` (or a custom path like `C:\MinGW-w64` to avoid conflicts with other MinGW installations).
+     - **Components**: Ensure `gcc`, `g++`, and `binutils` are selected (optional components like `fortran` or `ada` can be skipped unless needed).
+   - Click **Install** and wait for the installation to complete (may take a few minutes depending on your internet speed).
+   - If using WinLibs, extract the `.7z` archive to `C:\MinGW` using a tool like 7-Zip (download from [7-zip.org](https://www.7-zip.org/)).
+
+3. **Add MinGW-w64 to PATH**:
+   - Open Windows Settings > System > About > Advanced system settings > Environment Variables.
+   - Under **System variables**, find and edit the `Path` variable.
+   - Click **New** and add `C:\MinGW\bin` (or `C:\MinGW-w64\bin` if you used a custom path).
+   - Click **OK** to save changes.
+   - Note: If you used WinLibs, the bin directory might be `C:\MinGW\mingw64\bin`; verify the path in your installation folder.
+
+4. **Verify Installation**:
+   - Open Command Prompt or PowerShell and run:
      ```cmd
      g++ --version
      ```
-   - Confirm the output shows the compiler version.
+   - Confirm the output shows the compiler version (e.g., `g++ (x86_64-posix-seh-rev0, Built by MinGW-W64 project) 8.1.0`).
+   - If the command is not recognized, double-check the PATH setting or restart your terminal to apply changes.
+   - Test with a simple C++ program:
+     ```cmd
+     echo #include ^<iostream^> > test.cpp
+     echo int main() { std::cout ^<^< "Hello, MinGW!\n"; return 0; } >> test.cpp
+     g++ test.cpp -o test
+     test.exe
+     ```
+   - Expected output: `Hello, MinGW!`
+
+5. **Troubleshooting**:
+   - If the installer fails, ensure you have a stable internet connection, as it downloads files during installation.
+   - If `g++` is not found, verify the `bin` directory is correct in PATH (e.g., `C:\MinGW\bin` contains `g++.exe`).
+   - For WinLibs, ensure the archive is fully extracted and the `mingw64\bin` directory is added to PATH.
+   - Check the [MinGW-w64 wiki](http://mingw-w64.org/doku.php) or [WinLibs FAQ](https://winlibs.com/#faq) for additional help.
 
 ### Install and Set Up Terminal Chat in Windows Terminal Canary
 1. **Install Windows Terminal Canary**:
@@ -187,4 +221,7 @@ Use GitHub Copilot’s Terminal Chat to suggest C++ code snippets or CMake comma
 - **CMake Flexibility**: Use `-G "NMake Makefiles"` instead of `-G "MinGW Makefiles"` if using MSVC. Ask Copilot for alternative generators if needed.
 - **Safety**: Always review Copilot’s suggested code or commands, as they may contain errors. Terminal Chat does not auto-execute commands, giving you control.
 - **Limitations**: Copilot is optimized for coding tasks. Non-coding queries may yield inaccurate responses. Use English for best results.
-- **Troubleshooting**: If authentication fails, clear stored auth tokens in Terminal Chat settings and re-authenticate. Check the [Windows Terminal repository](https://github.com/microsoft/terminal) for issues or updates.
+- **Troubleshooting**:
+   - If Terminal Chat authentication fails, clear stored auth tokens in Settings and re-authenticate.
+   - If MinGW-w64 commands fail, verify the PATH and test with a simple program as shown above.
+   - Check the [Windows Terminal repository](https://github.com/microsoft/terminal) or [MinGW-w64 wiki](http://mingw-w64.org/doku.php) for additional help.
