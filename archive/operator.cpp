@@ -2,7 +2,7 @@
 using namespace std;
 class Fraction {
     public:
-    Fraction(int num=0 , int den=1){
+    Fraction(int num, int den){
         this->num = num;
         this->den = den;
     }
