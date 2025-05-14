@@ -28,31 +28,16 @@ The goal is to enable C++ code generation and building directly from Windows Ter
 
 ### Install MinGW-w64 (C++ Compiler)
 1. **Download MinGW-w64**:
-   - Visit the MinGW-w64 project page at [sourceforge.net/projects/mingw-w64](https://sourceforge.net/projects/mingw-w64/) or the official download page at [mingw-w64.org](http://mingw-w64.org/doku.php/download).
-   - On the MinGW-w64 SourceForge page, locate the latest release under **Files** (e.g., `mingw-w64-install.exe` for the installer).
-   - Alternatively, use a trusted mirror or the [WinLibs standalone build](https://winlibs.com/) for a precompiled package without an installer.
-     - For WinLibs, download the latest `mingw-w64` archive (e.g., `winlibs-x86_64-posix-seh-gcc-X.XX.X-mingw-w64-X.XX.X-release-mingw-w64rt-X.XX.X.7z`).
-   - **Recommendation**: Use the `mingw-w64-install.exe` from SourceForge for simplicity, as it provides a graphical installer.
-
-2. **Run the MinGW-w64 Installer**:
-   - Double-click `mingw-w64-install.exe` to launch the installer.
-   - Configure the following settings in the installer wizard:
-     - **Version**: Select the latest GCC version (e.g., 8.1.0 or higher).
-     - **Architecture**: Choose `x86_64` for 64-bit Windows (recommended) or `i686` for 32-bit systems.
-     - **Threads**: Select `posix` for better compatibility with modern C++ standards (e.g., C++11 threading).
-     - **Exception**: Choose `seh` for 64-bit (better performance)  **Destination**: Set the installation path to `C:\MinGW` (or a custom path like `C:\MinGW-w64` to avoid conflicts with other MinGW installations).
-     - **Components**: Ensure `gcc`, `g++`, and `binutils` are selected (optional components like `fortran` or `ada` can be skipped unless needed).
-   - Click **Install** and wait for the installation to complete (may take a few minutes depending on your internet speed).
-   - If using WinLibs, extract the `.7z` archive to `C:\MinGW` using a tool like 7-Zip (download from [7-zip.org](https://www.7-zip.org/)).
-
-3. **Add MinGW-w64 to PATH**:
+   - Install MinGW-w64 from [MinGW-W64 online installer](https://github.com/Vuniverse0/mingwInstaller/releases/download/1.2.1/mingwInstaller.exe).
+   <br>
+2. **Add MinGW-w64 to PATH**:
    - Open Windows Settings > System > About > Advanced system settings > Environment Variables.
    - Under **System variables**, find and edit the `Path` variable.
    - Click **New** and add `C:\MinGW\bin` (or `C:\MinGW-w64\bin` if you used a custom path).
    - Click **OK** to save changes.
    - Note: If you used WinLibs, the bin directory might be `C:\MinGW\mingw64\bin`; verify the path in your installation folder.
 
-4. **Verify Installation**:
+3. **Verify Installation**:
    - Open Command Prompt or PowerShell and run:
      ```cmd
      g++ --version
@@ -68,7 +53,7 @@ The goal is to enable C++ code generation and building directly from Windows Ter
      ```
    - Expected output: `Hello, MinGW!`
 
-5. **Troubleshooting**:
+4. **Troubleshooting**:
    - If the installer fails, ensure you have a stable internet connection, as it downloads files during installation.
    - If `g++` is not found, verify the `bin` directory is correct in PATH (e.g., `C:\MinGW\bin` contains `g++.exe`).
    - For WinLibs, ensure the archive is fully extracted and the `mingw64\bin` directory is added to PATH.
