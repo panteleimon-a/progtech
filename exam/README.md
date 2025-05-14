@@ -153,20 +153,14 @@ This project provides a lightweight setup to generate C++ code in the Windows te
    - Click **Request Access** and agree to Meta AI’s terms (e.g., non-commercial use).
    - Wait for approval (typically instant to a few hours; check your email).
 
-3. **Generate a User Access Token**:
-   - Log in to [huggingface.co](https://huggingface.co/).
-   - Go to Settings > Access Tokens.
-   - Create a new token (select **Read** permissions).
-   - Copy the token (e.g., `hf_XXXXXXXXXXXXXXXX`).
-
-4. **Log In to Hugging Face**:
+3. **Log In to Hugging Face**:
    - Install `huggingface_hub`:
      ```cmd
      pip install huggingface_hub
      ```
    - Log in via terminal:
      ```cmd
-     huggingface-cli login
+     huggingface-cli login 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
      ```
    - Paste your token and press Enter.
    - Verify login:
