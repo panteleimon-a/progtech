@@ -1,0 +1,6 @@
+*.zip
+cmake-build-debug
+archive/.vscode
+.idea
+.vscode
+
