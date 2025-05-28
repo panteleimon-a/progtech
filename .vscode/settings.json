@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.embeddedhtml": "html",
+        ".fantomasignore": "ignore",
         "__bit_reference": "cpp",
         "__bits": "cpp",
         "__config": "cpp",
@@ -70,7 +71,10 @@
         "charconv": "cpp",
         "fstream": "cpp",
         "iomanip": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "execution": "cpp",
+        "queue": "cpp",
+        "print": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled",
     "C_Cpp.default.compilerPath": "/usr/bin/gcc",

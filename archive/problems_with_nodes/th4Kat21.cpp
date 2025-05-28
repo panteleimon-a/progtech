@@ -69,14 +69,23 @@ void inorder(struct node* node, vector<int>& sortedInorder)
 	inorder(node->right, sortedInorder);
 };
 
-int noSmaller(node root, int k)
+int noSmaller(node* root, int k)
 {
 	vector<int> sortedInorder;
-	inorder(
-		root,
-		sortedInorder);
-    while (k>sortedInorder[0]){
-        sortedInorder.pop_back();
-    };
-    return (sortedInorder[0]);
+	inorder(root, sortedInorder);
+    
+    int count = 0;
+    for (int i = 0; i < sortedInorder.size(); i++) {
+        if (sortedInorder[i] < k) {
+            count++;
+        }
+    }
+    
+    // Return the smallest element ≥ k (lower bound)
+    // or -1 if no such element exists
+    if (count < sortedInorder.size()) {
+        return sortedInorder[count];
+    } else {
+        return -1; // No element found that is ≥ k
+    }
 };
